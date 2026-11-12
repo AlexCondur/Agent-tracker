@@ -1,0 +1,7 @@
+node_modules/
+spike/sandbox/
+spike/hooks.jsonl
+spike/spike-settings.json
+web/dist/
+spike/shots/
+.claude/

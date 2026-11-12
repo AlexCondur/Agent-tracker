@@ -1,0 +1,7 @@
+#!/bin/sh
+# Starts ct under ~/.agent-tracker/bin/ct-node, a symlink to node that ct keeps current, so that
+# `killall node` doesn't kill ct sessions. Falls back to plain node until the link exists.
+dir=$(dirname "$(realpath "$0")")
+node_bin="${AGENT_TRACKER_DIR:-$HOME/.agent-tracker}/bin/ct-node"
+[ -x "$node_bin" ] || node_bin=node
+exec "$node_bin" --no-warnings "$dir/ct.ts" "$@"

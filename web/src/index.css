@@ -1,0 +1,42 @@
+@import 'tailwindcss';
+
+@theme {
+  --font-mono: 'SF Mono', Menlo, Monaco, monospace;
+}
+
+.xterm .xterm-viewport {
+  background-color: transparent !important;
+}
+
+/* Agent avatars: the spark spins while working, wiggles when it needs you. */
+@keyframes agent-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+@keyframes agent-wiggle {
+  0%, 60%, 100% {
+    transform: rotate(0) scale(1);
+  }
+  15% {
+    transform: rotate(-14deg) scale(1.12);
+  }
+  30% {
+    transform: rotate(12deg) scale(1.12);
+  }
+  45% {
+    transform: rotate(-6deg) scale(1.05);
+  }
+}
+.agent-working {
+  animation: agent-spin 6s linear infinite;
+}
+.agent-waiting {
+  animation: agent-wiggle 1.6s ease-in-out infinite;
+}
+@media (prefers-reduced-motion: reduce) {
+  .agent-working,
+  .agent-waiting {
+    animation: none;
+  }
+}
